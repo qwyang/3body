@@ -12,6 +12,7 @@ import (
 	"regexp"
 	"strings"
 	"time"
+	"github.com/3body/go/algorithms"
 )
 
 type Person struct{
@@ -19,7 +20,7 @@ type Person struct{
 	age int8
 }
 
-type Student struct {
+type Student2 struct {
 	Person
 	speciality string
 }
@@ -36,7 +37,7 @@ func (person *Person) PString() string {
 	return string(buffer.Bytes())
 }
 
-func (stu *Student) String() string {
+func (stu *Student2) String() string {
 	buffer := bytes.Buffer{}
 	fmt.Fprintf(&buffer,"name:%s,age:%d,speciality:%s",stu.Name,stu.age,stu.speciality)
 	return string(buffer.Bytes())
@@ -106,8 +107,8 @@ func main(){
 	for i,v := range []byte(c) {
 		fmt.Printf("byte%d:%X\n",i,v)
 	}
-	stu1 := Student{Person{"zs",25},"math"}
-	stu2 := new(Student)
+	stu1 := Student2{Person{"zs",25},"math"}
+	stu2 := new(Student2)
 	stu2.age = 26
 	stu2.Name = "ls"
 	fmt.Printf("stu1:%#v\n",stu1)
@@ -154,7 +155,7 @@ func main(){
 	if err == nil {
 		fmt.Printf("json:%s\n",string(ret))
 	}
-	stu3 := Student{Person:Person{
+	stu3 := Student2{Person:Person{
 		"name",23,
 		},
 		speciality:"math",
@@ -217,9 +218,12 @@ func main(){
 		score := match[1]
 		fmt.Printf("find movie name:%s\n",score)
 	}
-	//arr := []int{3,2,1}
-	//algorithms.Qsort(arr)
-	//fmt.Printf("%v\n",arr)
+	arr := []int{3,2,1}
+	algorithms.Qsort(arr)
+	fmt.Printf("%v\n",arr)
+	arr1 := arr[1:]
+	arr1[0] = 99
+	fmt.Printf("%v\n",arr)
 }
 
 
