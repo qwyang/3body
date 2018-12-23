@@ -1,12 +1,12 @@
-# 3body 
-    a project to place my codes and scripts.  
+# 聚沙成塔 
+    a project to place my scripts/codes/ideas.  
 
 ## rsa key
     ssh-keygen -t rsa -C '419139939@qq.com'
 
-## basic config for vim
-    vim ~/.vimrc:  
+## vim
 ```
+    vim ~/.vimrc:  
         filetype on
         filetype plugin on
         filetype indent on
@@ -28,7 +28,7 @@
         hi cursorline guibg=#00ff00
         hi CursorColumn guibg=#00ff00
 ```
-## basic config for git
+## git
 ```
     git config --global user.email "yangqunwei@huawei.com"
     git config --global user.name "qunwei"
@@ -36,8 +36,6 @@
     git config --global push.default simple
     git clone https://github.com/qwyang/pysh.git
     git remote add origin git@github.com:qwyang/3body.git
-```
-## useful help for git
     git config -l --global
     git ls-files
     git ls-files -d
@@ -45,8 +43,8 @@
     git config core.eol crlf
     git config core.autocrlf true
     git archive --format tar.gz -o abc.tar.gz HEAD
-
-## other information
+```
+## others
     IDE for shell and py: pycharm
     Online Editor for markdown: http://mahua.jser.me/
     markdown introduction: http://blog.csdn.net/skykingf/article/details/45536231
