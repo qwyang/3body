@@ -5,7 +5,6 @@
     ssh-keygen -t rsa -C '419139939@qq.com'
 
 ## vim
-```
     vim ~/.vimrc:  
         filetype on
         filetype plugin on
@@ -27,9 +26,7 @@
         set cursorline
         hi cursorline guibg=#00ff00
         hi CursorColumn guibg=#00ff00
-```
 ## git
-```
     git config --global user.email "yangqunwei@huawei.com"
     git config --global user.name "qunwei"
     git config --global core.editor vim
@@ -43,7 +40,6 @@
     git config core.eol crlf
     git config core.autocrlf true
     git archive --format tar.gz -o abc.tar.gz HEAD
-```
 ## others
     IDE for shell and py: pycharm
     Online Editor for markdown: http://mahua.jser.me/
