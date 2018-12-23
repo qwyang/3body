@@ -217,7 +217,9 @@ func main(){
 		score := match[1]
 		fmt.Printf("find movie name:%s\n",score)
 	}
-
+	//arr := []int{3,2,1}
+	//algorithms.Qsort(arr)
+	//fmt.Printf("%v\n",arr)
 }
 
 
