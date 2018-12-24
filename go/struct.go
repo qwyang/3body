@@ -70,8 +70,13 @@ func (p *Player)Pos() Vec{
 	return p.curPos
 }
 
+func (p *Player)Distance() float32 {
+	d := p.curPos.DistanceTo(p.targetPos)
+	return d
+}
+
 func (p *Player)Arrived() bool{
-	return p.curPos.DistanceTo(p.targetPos) < p.speed
+	return p.Distance() < p.speed
 }
 
 func (p *Player)Update(){
@@ -91,10 +96,11 @@ func testPoint(){
 }
 
 func main(){
-	p := Player{curPos:Vec{0,0},targetPos:Vec{15,5},speed:1.0}
+	p := Player{curPos:Vec{0,0},targetPos:Vec{3,4},speed:1.0}
 	for !p.Arrived(){
 		p.Update()
-		fmt.Printf("curPos:%v\n",p.Pos())
-		time.Sleep(1e9)
+		fmt.Printf("curPos:%v,distance:%v\n",p.Pos(),p.Distance())
+		time.Sleep(time.Second)
 	}
+	//fmt.Printf("curPos:%v,distance:%v\n",p.Pos(),p.Distance())
 }
