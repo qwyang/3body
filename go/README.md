@@ -3,6 +3,7 @@ a place to put my go files.
 ### io
     os.Create
     os.Open
+    bufio.NewReader
     fmt.Scanf
 ### args
     flag
@@ -13,6 +14,8 @@ a place to put my go files.
 ### functions
     anonymous functions
 ### method
+    
 ### interface
+    sort.Interface
 ### go routine
 

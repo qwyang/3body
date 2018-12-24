@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 )
-
+//实现了SortInterface的结构体
 type Student struct{
 	Name string
 	Score uint8
@@ -12,7 +12,7 @@ type Student struct{
 
 type Students []Student
 
-//降序排序，成绩相同，按名字先后
+//按成绩降序排序，若成绩相同，按名字顺序升序排列
 func (s Students) Less(i,j int) bool {
 	si,sj := s[i].Score,s[j].Score
 	si_name,sj_name := s[i].Name,s[j].Name
