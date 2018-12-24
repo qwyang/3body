@@ -1,7 +1,9 @@
 package main
 
 import "fmt"
-
+/*
+打印*号组成的直角三角形
+ */
 func StarsSimple(){
 	for i:=1;i<=9;i++{
 		for j:=1;j<=i;j++{
@@ -10,7 +12,9 @@ func StarsSimple(){
 		fmt.Println()
 	}
 }
-
+/*
+打印*号组成的等腰三角形
+ */
 func StarsComplex(){
 	N := 9
 	for i:=0;i<=N/2;i++ {
@@ -24,7 +28,9 @@ func StarsComplex(){
 		fmt.Println()
 	}
 }
-
+/*
+打印99乘法表
+ */
 func MultiTable99(){
 	for i:=1;i<=9;i++{
 		for j:=1;j<=i;j++{
