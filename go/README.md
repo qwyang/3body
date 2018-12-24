@@ -7,6 +7,12 @@ a place to put my go files.
     fmt.Scanf
 ### args
     flag
+### time
+
+### json
+l
+### error
+
 ### composite types:
     slice
     map
