@@ -1,4 +1,4 @@
-a place to put my go files.
+Go学习线索.
 
 ### io
     os.Create
@@ -10,11 +10,11 @@ a place to put my go files.
     flag.String
     flag.NewFlagSet
 ### time
-    
+    timer/ticker
 ### json
 
 ### error
-
+    errors.New
 ### composite types:
     slice
     map
@@ -22,7 +22,7 @@ a place to put my go files.
 ### functions
     anonymous functions
 ### method
-    
+    method is function with a inplicit receiver
 ### interface
     sort.Interface
 ### go routine
@@ -31,8 +31,10 @@ a place to put my go files.
     使用go关键之创建goroutine时，被调用函数的返回值会被忽略。
     go runtime实现了一个小型的任务调度器,类似于操作系统调度线程。
 ### network
-    http
-    socket
+    http.Get
+    http.Post
+    net.Listen
+    Listener.Accept
 ### unit test
     go test -v --run TestCaseA
     go test -v --bench=. BenchmarkA
