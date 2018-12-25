@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"image"
 	"image/color"
@@ -12,7 +13,15 @@ import (
 	"os"
 	"strings"
 )
-
+/*
+buffer io
+ */
+ func Buffer(){
+ 	var buf bytes.Buffer
+ 	buf.WriteString("第一滴血")
+ 	fmt.Fprintf(&buf,",电影：%s","first blood")
+ 	fmt.Println(buf.String())
+ }
 /*
 生成一副正弦图300x300 pixel
 1.生成一副空图
@@ -86,6 +95,7 @@ func GetIniValue(filename,section,key string) string {
 	return "NotFound"
 }
 func main(){
+	Buffer()
 	SinImage("sin.png")
 	v := GetIniValue("/home/qwyang/.gitconfig","core","editor")
 	fmt.Printf("core.editor:%s\n",v)
