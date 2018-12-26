@@ -97,6 +97,6 @@ func GetIniValue(filename,section,key string) string {
 func main(){
 	Buffer()
 	SinImage("sin.png")
-	v := GetIniValue("/home/qwyang/.gitconfig","core","editor")
+	v := GetIniValue("/home/qwyang/.gitconfig","core","edictor")
 	fmt.Printf("core.editor:%s\n",v)
 }
