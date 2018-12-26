@@ -7,7 +7,7 @@ import (
 
 /*
 获取struct变量的类型对象(reflect.Type)信息
-声明State接口及其实现StateInfo，IdleState
+声明State接口及其实现*StateInfo，*IdleState
 */
 type State interface {
 	Name() string
