@@ -19,6 +19,9 @@ Go学习线索.
     slice
     map
     struct
+### reflect
+    reflect.Type
+    reflect.Value
 ### functions
     anonymous functions
 ### method
