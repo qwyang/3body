@@ -12,7 +12,7 @@ Go学习线索.
 ### time
     timer/ticker
 ### json
-
+    Marshal/UnMarshal
 ### error
     errors.New
 ### composite types:
@@ -23,11 +23,14 @@ Go学习线索.
     reflect.Type
     reflect.Value
 ### functions
-    anonymous functions
+    匿名函数
+    可变参函数
+    closure：函数+捕获到的自由变量，可以看作是包含一个函数及自由变量的对象体。
 ### method
     method is function with a inplicit receiver
 ### interface
     sort.Interface
+    状态模式
 ### go routine
     自动为main函数创建一个goroutine。
     所有goroutine在main函数结束时会一同结束。
@@ -37,7 +40,9 @@ Go学习线索.
     http.Get
     http.Post
     net.Listen
+    net.Dial
     Listener.Accept
+    tcp粘包问题
 ### unit test
     go test -v --run TestCaseA
     go test -v --bench=. BenchmarkA
