@@ -10,9 +10,11 @@ Go学习线索.
     flag.String
     flag.NewFlagSet
 ### time
-    timer/ticker
+    timer
+    ticker
 ### json
-    Marshal/UnMarshal
+    json.Marshal
+    json.UnMarshal
 ### error
     errors.New
 ### composite types:

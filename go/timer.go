@@ -7,24 +7,24 @@ import (
 
 /*
 计时器timer，闹钟，到期后执行特定操作。
- */
-func Timer(){
+*/
+func Timer() {
 	exit := make(chan bool)
-	time.AfterFunc(time.Second,func(){
+	time.AfterFunc(time.Second, func() {
 		fmt.Println("execute after 1 second.")
 		exit <- true
 	})
-	<- exit
+	<-exit
 }
 
 /*
 ticker:打点器，每隔一段时间执行一次。
- */
- func Ticker(){
- 	stoper := time.NewTimer(time.Second*2)
- 	ticker := time.NewTicker(time.Millisecond*500)
+*/
+func Ticker() {
+	stoper := time.NewTimer(time.Second * 2)
+	ticker := time.NewTicker(time.Millisecond * 500)
 OuterLoop:
- 	for{
+	for {
 		select {
 		case <-stoper.C:
 			break OuterLoop
@@ -32,9 +32,9 @@ OuterLoop:
 			fmt.Println("ticker run...")
 		}
 	}
- }
+}
 
-func main(){
+func main() {
 	Timer()
 	Ticker()
 }
