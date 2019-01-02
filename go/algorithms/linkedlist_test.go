@@ -13,21 +13,21 @@ func TestLinkedList(t *testing.T) {
 	list.Traverse(func(i interface{}) {
 		fmt.Print(i," ")
 	})
-	fmt.Println()
+	fmt.Println("listsize:",list.Size())
 	for i:=0;i<10;i++{
 		list.PopBack()
 	}
 	list.Traverse(func(i interface{}) {
 		fmt.Print(i," ")
 	})
-	fmt.Println()
+	fmt.Println("listsize:",list.Size())
 	for i:=0;i<10;i++{
 		list.PushFront(i)
 	}
 	list.Traverse(func(i interface{}) {
 		fmt.Print(i," ")
 	})
-	fmt.Println()
+	fmt.Println("listsize:",list.Size())
 	for i:=0;i<10;i++{
 		list.PopFront()
 	}
@@ -42,7 +42,7 @@ func TestLinkedList(t *testing.T) {
 	list.Traverse(func(i interface{}) {
 		fmt.Print(i," ")
 	})
-	fmt.Println()
+	fmt.Println("listsize:",list.Size())
 	for i:=0;i<10;i++{
 		list.Remove(i)
 	}
@@ -53,12 +53,12 @@ func TestLinkedList(t *testing.T) {
 	list.Traverse(func(i interface{}) {
 		fmt.Print(i," ")
 	})
-	fmt.Println()
-	for i:=0;i<10;i++{
+	fmt.Println("listsize:",list.Size())
+	for i:=20;i>5;i--{
 		list.Remove(i)
 	}
 	list.Traverse(func(i interface{}) {
 		fmt.Print(i," ")
 	})
-	fmt.Println()
+	fmt.Println("listsize:",list.Size())
 }
