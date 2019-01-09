@@ -68,17 +68,7 @@ func (pq *pqueue) Insert(elem PqElem) bool {
 	return true
 }
 
-func (pq *pqueue) DeleteMax() (PqElem,bool){
-	size := pq.Size()
-	if size <= 0 {
-		return nil,false
-	}
-	max := pq.Max()
-	pq.array[1] = pq.array[size]
-	pq.array = pq.array[:size]
-	//justify
-
-	var parent int64 = 1
+func (pq *pqueue) justify(parent int64){
 	for parent < pq.Size() {
 		lchild := 2*parent
 		rchild := lchild + 1
@@ -109,6 +99,19 @@ func (pq *pqueue) DeleteMax() (PqElem,bool){
 			//pq.Traverse()
 		}
 	}
+}
+
+func (pq *pqueue) DeleteMax() (PqElem,bool){
+	size := pq.Size()
+	if size <= 0 {
+		return nil,false
+	}
+	max := pq.Max()
+	pq.array[1] = pq.array[size]
+	pq.array = pq.array[:size]
+	//justify
+	var parent int64 = 1
+	pq.justify(parent)
 	return max,true
 }
 
