@@ -1,24 +1,10 @@
 package algorithms
 
-import "testing"
+import (
+	"sort"
+	"testing"
+)
 
-
-type IntArray []int
-
-func (a IntArray) equal(b IntArray) bool{
-	if len(a) != len(b){
-		return false
-	}
-	if (a == nil) != (b == nil){
-		return false
-	}
-	for i,v := range a {
-		if v != b[i]{
-			return false
-		}
-	}
-	return true
-}
 
 func TestRandInt(t *testing.T) {
 	min := 5
@@ -34,30 +20,30 @@ func TestRandInt(t *testing.T) {
 
 func TestQsort(t *testing.T){
 	//normal case
-	test := IntArray{3,2,1,4,5}
-	expect := IntArray{1,2,3,4,5}
+	test := []int{3,2,1,4,5}
+	expect := []int{1,2,3,4,5}
 	Qsort([]int(test))
-	if !test.equal(expect) {
+	if !IsIntArrayEqual(test,expect) {
 		t.Log(test)
 		t.FailNow()
 	}
 	t.Log(test)
 	t.Log("TestQsort1 success")
 	//已排序数组
-	test = IntArray{1,1,1,2,2,2}
-	expect = IntArray{1,1,1,2,2,2}
+	test = []int{1,1,1,2,2,2}
+	expect = []int{1,1,1,2,2,2}
 	Qsort([]int(test))
-	if !test.equal(expect) {
+	if !IsIntArrayEqual(test,expect) {
 		t.Log(test)
 		t.FailNow()
 	}
 	t.Log(test)
 	t.Log("TestQsort2 success")
 	//已排序数组，倒序
-	test = IntArray{2,2,2,1,1,1}
-	expect = IntArray{1,1,1,2,2,2}
+	test = []int{2,2,2,1,1,1}
+	expect = []int{1,1,1,2,2,2}
 	Qsort([]int(test))
-	if !test.equal(expect) {
+	if !IsIntArrayEqual(test,expect) {
 		t.Log(test)
 		t.FailNow()
 	}
@@ -67,10 +53,22 @@ func TestQsort(t *testing.T){
 	test = nil
 	expect = nil
 	Qsort([]int(test))
-	if !test.equal(expect) {
+	if !IsIntArrayEqual(test,expect) {
 		t.Log(test)
 		t.FailNow()
 	}
 	t.Log(test)
 	t.Log("TestQsort4 success")
+	array := randArray(100,1000)
+	expect = make([]int,100)
+	copy(expect,array)
+	sort.Ints(expect)
+	Qsort(array)
+	if !IsIntArrayEqual(array,expect) {
+		t.Log(array)
+		t.Log(expect)
+		t.FailNow()
+	}
+	t.Log(array)
+	t.Log("TestQsort5 success")
 }

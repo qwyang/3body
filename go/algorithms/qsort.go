@@ -1,9 +1,5 @@
 package algorithms
 
-func swap(arr []int, i,j int){
-	arr[i],arr[j] = arr[j],arr[i]
-}
-
 func partition(arr []int, s,e int) int {
 	pivot := RandInt(s,e)
 	v := arr[pivot]
@@ -25,7 +21,7 @@ func qsort(arr []int,s,e int){
 	}
 	//分割数组后，分别排序
 	r := partition(arr,s,e)
-	qsort(arr,0,r-1)
+	qsort(arr,s,r-1)
 	qsort(arr, r+1,e)
 }
 
