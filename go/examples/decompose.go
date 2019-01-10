@@ -18,7 +18,7 @@ func decompose(n int)(ret []int){
 	}
 	if i > sqrt{//递归终止条件:已是质数不可分解
 		return []int{n}
-	}else{
+	}else{//非终止条件，继续递归
 		x,y := i,n/i
 		ret1:=decompose(x)
 		ret2:=decompose(y)
