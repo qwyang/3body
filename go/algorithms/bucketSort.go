@@ -1,6 +1,6 @@
 package algorithms
 /*
-桶排序，对于值在特定范围内的数据排序可以使用桶排序方法实现线性时间排序完成。
+桶排序，对于值在特定小范围内的数据排序可以使用桶排序方法实现线性时间排序完成。
 */
 const BucketSortBucketSize = 100
 func BucketSort(data []int){
