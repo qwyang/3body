@@ -16,9 +16,9 @@ func divide(array []int,count *int)int{
 	pivot := array[p]
 	array[p],array[len(array)-1] = array[len(array)-1],array[p]
 	r := -1//array[0-r]>=pivot,array[r+1,size-1]<pivot
-	for i:=0;i<len(array);i++{
-		//if array[i] >= pivot {//不能用大于等于
-		if array[i] > pivot {//大元素往前调,小元素往后
+	//for i:=0;i<len(array);i++{//错误，最后一个数字不要加入比较
+	for i:=0;i<len(array)-1;i++{
+		if array[i] >= pivot {//大元素往前调,小元素往后
 			array[r+1],array[i] = array[i],array[r+1]
 			r++
 		}

@@ -6,8 +6,8 @@ import (
 )
 
 func TestFindKth(t *testing.T) {
-	array := randArray(100,1000)
-	k := 50
+	array := randArray(1000000,1000000)
+	k := 500
 	e,c := FindKth(array,k)
 	qsort(array,0,len(array)-1)
 	reverse(array)
