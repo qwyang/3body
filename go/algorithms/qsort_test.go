@@ -72,3 +72,32 @@ func TestQsort(t *testing.T){
 	t.Log(array)
 	t.Log("TestQsort5 success")
 }
+func testQSort(n int,b *testing.B){
+	data := randArray(n,1<<30)
+	b.StopTimer()
+	b.ResetTimer()
+	b.StartTimer()
+	for i:=0;i<b.N;i++{
+		Qsort(data)
+	}
+	b.Logf("benchmark for qsort N=%d done\n",n)
+}
+func BenchmarkQSort1024(b *testing.B){
+	testRadixSort(1024,b)
+}
+
+func BenchmarkQSort2048(b *testing.B){
+	testRadixSort(2048,b)
+}
+
+func BenchmarkQSort4096(b *testing.B){
+	testRadixSort(4096,b)
+}
+
+func BenchmarkQSort8192(b *testing.B){
+	testRadixSort(8192,b)
+}
+
+func BenchmarkQSortLarge(b *testing.B){
+	testRadixSort(1<<20,b)
+}
