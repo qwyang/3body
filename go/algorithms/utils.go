@@ -69,3 +69,12 @@ func IsIntArrayEqual(a,b []int) bool{
 	}
 	return true
 }
+
+func Max(max int,params... int) int {
+	for _,v := range params {
+		if v > max {
+			max = v
+		}
+	}
+	return max
+}
