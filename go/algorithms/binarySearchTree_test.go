@@ -20,9 +20,11 @@ func TestBinarySearchTree_Insert(t *testing.T) {
 		T = T.Delete(i)
 	}
 	T.Traverse()
+	var e int
 	/*case3:deleteMin 10 times*/
 	for i:=0;i<10;i++ {
-		T = T.DeleteMin()
+		T,e = T.DeleteMin()
+		t.Log("delete:",e)
 	}
 	T.Traverse()
 }

@@ -50,29 +50,42 @@ func (T *BinarySearchTree)Delete(key int)*BinarySearchTree{
 	}else{//相等的情况
 		T.count--
 		if T.count == 0{
+			/*有右子树*/
 			if T.rchild != nil{
-				T.key = T.rchild.key
-				T.rchild = T.rchild.Delete(T.key)
-			}else if T.lchild != nil{
-				T.key = T.lchild.key
-				T.lchild = T.lchild.Delete(T.key)
-			}else{//被删元素是叶子节点
-				T = nil
+				q := T //q代表最小节点的父节点
+				p := T.rchild //p代表最小节点,最小节点不可能有左子树
+				for p.lchild != nil {
+					q = p
+					p = p.lchild
+				}
+				if p == q.lchild {
+					q.lchild = p.rchild
+				}else{
+					q.rchild = p.rchild
+				}
+				T.key,T.count = p.key,p.count
+			}else{//只有左子树,或者左子树为空
+				T = T.lchild
 			}
 		}
 	}
 	return T
 }
 
-func (T *BinarySearchTree) DeleteMin() *BinarySearchTree{
+func (T *BinarySearchTree) DeleteMin() (*BinarySearchTree,int){
+	var min int
 	if T == nil{
 		//
 	}else if T.lchild == nil{
-		T = T.rchild
+		T.count--
+		min = T.key
+		if T.count == 0 {
+			T = T.rchild
+		}
 	}else{
-		T.lchild = T.lchild.DeleteMin()
+		T.lchild,min = T.lchild.DeleteMin()
 	}
-	return T
+	return T,min
 }
 
 /*
