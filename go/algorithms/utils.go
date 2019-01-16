@@ -78,3 +78,11 @@ func Max(max int,params... int) int {
 	}
 	return max
 }
+func Min(min int,params... int) int {
+	for _,v := range params {
+		if v < min {
+			min = v
+		}
+	}
+	return min
+}
