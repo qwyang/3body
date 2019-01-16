@@ -86,3 +86,13 @@ func Min(min int,params... int) int {
 	}
 	return min
 }
+/*
+返回s的以2为低的位数
+ */
+func bits(s int)(count int){
+	for s>0 {
+		s = s>>1
+		count++
+	}
+	return
+}
