@@ -20,7 +20,7 @@ func TestExternalSort_Sort(t *testing.T) {
 	tmpfile := "abc.dat"
 	generateTmpFile(tmpfile,33,100)
 	printBinaryFileConent(tmpfile)
-	es := NewExternalSort(tmpfile,8,2)
+	es := NewExternalSort(tmpfile,8,3)
 	es.Initialize()
 	printBinaryFileConent("tmp0.dat","tmp1.dat")
 	es.Sort()

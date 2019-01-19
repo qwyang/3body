@@ -1,6 +1,7 @@
 package algorithms
 
 import (
+	"bufio"
 	"container/heap"
 	"encoding/binary"
 	"errors"
@@ -106,9 +107,10 @@ func printBinaryFileConent(files... string){
 	for _,tmpfile := range files{
 		fmt.Printf("file %s\n",tmpfile)
 		f, _ := os.OpenFile(tmpfile, os.O_RDONLY, os.ModePerm)
+		r := bufio.NewReader(f)
 		var data int32
 		for {
-			err := binary.Read(f, binary.LittleEndian, &data)
+			err := binary.Read(r, binary.LittleEndian, &data)
 			if err == io.EOF {
 				break
 			}
