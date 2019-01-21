@@ -25,6 +25,7 @@ type AdjacencyList struct {
 func NewAdjacencyList(t GraphType)*AdjacencyList{
 	return &AdjacencyList{graphType:t,indexGen:NewIndexGen(),nameIndexConverter:make(map[string]int)}
 }
+func (g *AdjacencyList)Type() GraphType{return g.graphType}
 func (g *AdjacencyList)VertexNum() int{return g.vertexNum}
 func (g *AdjacencyList)EdegeNum() int{return g.edgeNum}
 func (g *AdjacencyList)AddEdge(v1,v2 string, cost int){

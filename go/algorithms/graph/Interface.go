@@ -18,6 +18,7 @@ type VertexInterface interface {
 }
 
 type GraphInterface interface {
+	Type() GraphType
 	VertexNum() int
 	EdegeNum() int
 	AddEdge(v1,v2 string,cost int)

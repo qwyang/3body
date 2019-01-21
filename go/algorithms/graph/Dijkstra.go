@@ -9,10 +9,10 @@ import (
 单源最短路径问题，给定一个图g和顶点s，找出s到达其余顶点的最小距离dist和路径path。
 主过程：
 1.扫描表格，取出未知节点中距离s最小的顶点v。FindMinDistVertex()。
-2.对于v的所有边(v,w),如果dist(s,w)>dist(s,v)+dist(v,w),更新dist(s,w),path(s,w)=v。
+2.对于v的所有边(v,w),如果dist(start,w)>early(start,v)+early(v,w),更新dist(start,w),path(start,w)=v。
 3.重复上述过程。
 初始化：
-三个数组：known,path,dist
+三个数组：known,path,early
 辅助函数：printPath(vertex)
 */
 
@@ -55,7 +55,7 @@ func (dij *Dijkstra)findMinDistVertex()int{
 }
 
 func (dij *Dijkstra)PrintPath(dst int){
-	//fmt.Printf("distance from %d to %d:%d\n",dij.s,dst,dij.dist[dst])
+	//fmt.Printf("distance from %d to %d:%d\n",dij.start,dst,dij.early[dst])
 	if dij.dist[dst] < math.MaxInt32{
 		if dij.path[dst] != -1 {
 			dij.PrintPath(dij.path[dst])

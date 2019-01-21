@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestDijkstra_Run(t *testing.T) {
+func TestCriticalPath(t *testing.T) {
 	g := NewAdjacencyList(DG)
 	g.AddEdge("v1", "v2", 1)
 	g.AddEdge("v1", "v3", 1)
@@ -19,17 +19,17 @@ func TestDijkstra_Run(t *testing.T) {
 	g.AddEdge("v5", "v4", -10)
 	g.AddEdge("v5", "v7", 1)
 	g.AddEdge("v7", "v6", 1)
-	dij := NewDijkstra(g, 0)
-	dij.Run()
-	dij.PrintPath(1)
+	crit := NewCriticalPath(g, 0,5)
+	crit.Run()
+	crit.PrintPath(1)
 	fmt.Println()
-	dij.PrintPath(2)
+	crit.PrintPath(2)
 	fmt.Println()
-	dij.PrintPath(3)
+	crit.PrintPath(3)
 	fmt.Println()
-	dij.PrintPath(4)
+	crit.PrintPath(4)
 	fmt.Println()
-	dij.PrintPath(5)
+	crit.PrintPath(5)
 	fmt.Println()
-	dij.PrintPath(6)
+	crit.PrintResult()
 }
