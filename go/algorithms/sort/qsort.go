@@ -1,4 +1,4 @@
-package algorithms
+package sort
 
 func partition(arr []int, s,e int) int {
 	pivot := RandInt(s,e)

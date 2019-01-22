@@ -1,4 +1,4 @@
-package algorithms
+package sort
 
 import (
 	"container/list"

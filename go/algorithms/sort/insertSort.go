@@ -1,4 +1,4 @@
-package algorithms
+package sort
 
 func InsertSort1(data []int){
 	for i:=1;i<len(data);i++{

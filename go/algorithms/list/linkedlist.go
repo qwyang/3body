@@ -1,4 +1,4 @@
-package algorithms
+package list
 
 /*
 基于接口的抽象设计

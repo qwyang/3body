@@ -1,4 +1,4 @@
-package algorithms
+package sort
 /*
 桶排序，对于值在特定小范围内的数据排序可以使用桶排序方法实现线性时间排序完成。
 */

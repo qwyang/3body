@@ -27,7 +27,7 @@ func compare(a,b[]byte)bool{
 }
 
 func TestHanoi(t *testing.T) {
-	hanoi(5,'A','B','C')
+	hanoi(20,'A','B','C')
 	data := hanoi_nr(5,'A','B','C')
 	fmt.Println(string(data))
 }

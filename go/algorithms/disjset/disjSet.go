@@ -1,4 +1,4 @@
-package algorithms
+package disjset
 /*
 不相交集ADT
  */

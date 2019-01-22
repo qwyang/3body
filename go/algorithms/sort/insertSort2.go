@@ -1,4 +1,4 @@
-package algorithms
+package sort
 
 func InsertSort2(data SortInterface){
 	for i:=1;i<data.Len();i++{

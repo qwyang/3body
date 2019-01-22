@@ -1,4 +1,4 @@
-package algorithms
+package heap
 /*
 左式堆的实现。
 堆的性质：根的key最小（小根堆）/最大（大根堆）。

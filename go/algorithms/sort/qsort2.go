@@ -1,4 +1,4 @@
-package algorithms
+package sort
 
 type SortInterface interface{
 	Less(i,j int) bool
