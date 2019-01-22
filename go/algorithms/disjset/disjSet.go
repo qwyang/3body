@@ -12,7 +12,7 @@ type DisjSetInterface interface {
 func NewDisjSet(n int)DisjSet{
 	s := make([]int,n)
 	for i:=0;i<len(s);i++{
-		s[i]=0
+		s[i]=-1
 	}
 	return s
 }
@@ -33,7 +33,7 @@ func (s DisjSet)Union(r1, r2 int){
 含路径压缩
  */
 func (s DisjSet)Find(i int)int{
-	if s[i] <= 0 {return i}
+	if s[i] < 0 {return i}
 	s[i] = s.Find(s[i])
 	return s[i]
 }
