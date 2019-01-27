@@ -1,4 +1,4 @@
-package algorithms
+package dp
 
 /*
 素数测试:

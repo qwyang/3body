@@ -1,11 +1,11 @@
-package algorithms
+package dp
 
 import (
 	"math"
 )
 
 /*
-矩阵乘法的顺序安排。
+矩阵乘法的最优顺序安排。
 存放矩阵大小的数组：A[50x10]*B[10x40]*C[40x30]*D[30x5]=C[5,10,40,30,5]。
 乘法次数：M[1][N]=Min(M[1][k]+M[k][N]+C[0]*C[k]*C[N])。
 */

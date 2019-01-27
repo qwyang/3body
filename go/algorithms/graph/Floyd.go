@@ -33,11 +33,12 @@ func Floyd(G [][]int)(cost,path[][]int){
 			for j:=i+1;j<n;j++{
 				fmt.Printf("Update %d to %d,using %d\n",i,j,v)
 				c := cost[i][v]+cost[v][j]
-				if c < cost[i][j]{
+				oldc := cost[i][j]
+				if c < oldc{
 					cost[i][j] = c
 					cost[j][i] = c
 					path[i][j] = v
-					fmt.Println(i,j,c,v)
+					fmt.Printf("更新：从顶点%d到顶点%d，原路径长度：%d，新路径长度：%d，途经更优节点：%d\n",i,j,oldc,c,v)
 				}
 			}
 		}
