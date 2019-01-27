@@ -1,14 +1,13 @@
 package algorithms
 
 import (
-	"fmt"
 	"math"
 )
 
 /*
 矩阵乘法的顺序安排。
 存放矩阵大小的数组：A[50x10]*B[10x40]*C[40x30]*D[30x5]=C[5,10,40,30,5]。
-乘法次数：M[1][N]=Min(M[1][k]+M[k][N]+C[0]*C[k]*C[N])
+乘法次数：M[1][N]=Min(M[1][k]+M[k][N]+C[0]*C[k]*C[N])。
 */
 func OptMatrix(C []int)(M,L [][]int){
 	N:=len(C)-1
@@ -33,7 +32,7 @@ func OptMatrix(C []int)(M,L [][]int){
 			for k:=Left;k<Right;k++{
 				count := M[Left][k]+M[k+1][Right]+C[Left-1]*C[k]*C[Right]
 				if count < M[Left][Right]{
-					fmt.Println(count,Left,Right)
+					//fmt.Println(count,Left,Right)
 					M[Left][Right]=count
 					L[Left][Right]=k
 				}
