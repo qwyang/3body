@@ -1,0 +1,25 @@
+; 有理数定义1
+(define (make-rat1 n d)
+    (cons n d)
+)
+
+; 有理数定义2
+(define (make-rat2 n d)
+    (let ((g (gcd n d)))
+        (cons (/ n g) (/ d g))
+    )
+)
+
+;有理数定义3
+(define (make-rat3 n d)
+    (let ((n (/ n (gcd n d)))
+         (d (/ d (gcd n d))))
+        (cond ((< d 0) (cons (- n) (- d)))
+            (else (cons n d))
+        )
+    )
+)
+
+(make-rat3 4 -2)
+(make-rat3 4 2)
+(make-rat3 -4 -2)
