@@ -1,0 +1,24 @@
+;总共有几总换零钱的方式
+;总数=使用第n种货币的方法数(cc (amount-value(n)),n)+不使用第n种货币的方法数(cc amount n-1)
+;终止条件n<=0 or amount<0: 0,amount=0:1
+;货币类型：50 25 10 5 1
+(define (cc amount n)
+    (cond ((= amount 0) 1)
+         ((or (< amount 0) (<= n 0)) 0)
+         (else (+ (cc amount (- n 1)) (cc (- amount (currency n)) n)))
+    )
+)
+(define (currency n)
+    (cond ((= n 1) 50)
+        ((= n 2) 25)
+        ((= n 3) 10)
+        ((= n 4) 5)
+        ((= n 5) 1)
+    )
+)
+
+(define (change amount) 
+    (cc amount 5)
+)
+
+(change 100)
