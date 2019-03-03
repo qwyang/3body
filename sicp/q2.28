@@ -1,0 +1,11 @@
+(define (fringe tlst)
+    (cond 
+        ((null? tlst) ())
+        ((not (pair? tlst)) (list tlst))
+        (else (append (fringe (car tlst)) (fringe (cdr tlst))))
+    )
+)
+
+(define l (list (list 1 2) (list 3 4)))
+(fringe (list l l))
+
