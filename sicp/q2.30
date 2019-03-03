@@ -1,0 +1,37 @@
+;p2.30
+;把树看成子树的表，
+;如果子树是叶子节点，则直接计算结果返回
+;否则递归调用
+(define (square-tree tlst)
+    (map 
+        (lambda (subtree) 
+            (if (pair? subtree)
+                (square-tree subtree)
+                (* subtree subtree)
+            )
+        )
+        tlst
+    )
+)
+(define (tree-map proc tlst)
+    (map 
+        (lambda (subtree) 
+            (if (pair? subtree)
+                (tree-map proc subtree)
+                (proc subtree)
+            )
+        )
+        tlst
+    )
+)
+;计算第一个子树，计算其他子树,合并结果;如果是空树或者叶子直接返回结果.
+(define (tree-map proc tlst)
+    (cond
+        ((null? tlst) ()) 
+        ((not (pair? tlst)) (proc tlst)) 
+        (else (cons (tree-map proc (car tlst)) (tree-map proc (cdr tlst))))
+    )
+)
+(define l (list 1 (list 2 (list 3 4) 5) (list 6 7)))
+(square-tree l)
+(tree-map (lambda (x) (* x x)) l)
