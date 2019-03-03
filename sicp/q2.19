@@ -1,0 +1,12 @@
+(define (cc amount coins)
+    (cond((or (< amount 0) (null? coins)) 0)
+         ((= amount 0) 1)
+         (else (+ (cc amount (cdr coins)) (cc (- amount (car coins)) coins)))
+    )
+)
+
+(define us_coins (list 50 25 10 5 1))
+(cc 100 us_coins)
+
+(define uk_coins (list 100 50 20 10 5 2 1 0.5))
+(cc 100 uk_coins)
