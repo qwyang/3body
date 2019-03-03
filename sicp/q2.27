@@ -1,0 +1,26 @@
+;p2.27 deep-reverse lst
+;deep-reverse lst=cons (deep-reverse cdr lst) (deep-reverse car lst)
+;basic-condithion：lst为空，(null? lst),lst为数字(not pair? lst)
+;迭代版本:deep-iter lst rlst
+(define (deep-reverse lst)
+    (define (iter lst result)
+         (if (null? lst)
+            result
+            (iter (cdr lst) 
+                (cons 
+                    (if (not (pair? (car lst))) 
+                        (car lst) 
+                        (iter (car lst) ())
+                    )
+                    result
+                )
+            )
+        )
+    )
+    (iter lst ())
+)
+(define a (list 1 2 3))
+(define b (list 3 4))
+(define l (list a b))
+(deep-reverse a)
+(deep-reverse l)
