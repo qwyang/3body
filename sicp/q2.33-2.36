@@ -1,0 +1,53 @@
+(define (accumulate func result lst)
+    (cond ((null? lst) result)
+          (else (func (car lst) (accumulate func result (cdr lst))))
+    )
+)
+;p2.33
+(define (map proc sequence)
+    (accumulate (lambda (x y) (cons (proc x) y)) () sequence)
+)
+
+(define (mappend seq1 seq2)
+    (accumulate cons seq2 seq1)
+)
+
+(define (mlength seq)
+    (accumulate (lambda (x y) (+ y 1)) 0 seq)
+)
+;p2.34
+(define (horner-eval x coefficient-seq)
+    (accumulate (lambda (a r) (+ (* x r) a)) 0 coefficient-seq)
+)
+;p2.35
+(define (count-leaves tlst)
+    (accumulate + 0 (map (lambda (subtree) (if (not (pair? subtree)) 1 (count-leaves subtree))) tlst))
+)
+
+(define (array-add lst1 lst2)
+    (cond ((and (null? lst1) (null? lst2)) ())
+         ((and (null? lst1) (not (null? lst2))) (error))
+         ((and (not (null? lst1)) (null? lst2)) (error))
+        (else (cons (+ (car lst1) (car lst2)) (array-add (cdr lst1) (cdr lst2))))
+    )
+)
+
+(define (array-add-n arraylist)
+    (if (= 1 (length arraylist))
+        (car arraylist)
+        (array-add (car arraylist) (array-add-n (cdr arraylist)))
+    )
+)
+;p2.36
+(accumulate (lambda (lst rlst) (cons (car lst) rlst)) () arraylist)
+(accumulate (lambda (lst rlst) (cons (cdr lst) rlst)) () arraylist)
+
+(define l (list 1 2 3 4 5))
+(accumulate + 0 l)
+(map (lambda (x) (* x x)) l)
+(mappend l l)
+(mlength l)
+(horner-eval 2 (list 1 3 0 5 0 1))
+(count-leaves (list 1 (list 4 5) 2 3))
+(array-add l l)
+(array-add-n (list l l l))
