@@ -1,0 +1,23 @@
+(define (accumulate func result lst)
+    (cond ((null? lst) result)
+          (else (func (car lst) (accumulate func result (cdr lst))))
+    )
+)
+
+(define (map proc sequence)
+    (accumulate (lambda (x y) (cons (proc x) y)) () sequence)
+)
+
+(define (mappend seq1 seq2)
+    (accumulate cons seq2 seq1)
+)
+
+(define (mlength seq)
+    (accumulate (lambda (x y) (+ y 1)) 0 seq)
+)
+
+(define l (list 1 2 3 4 5))
+(accumulate + 0 l)
+(map (lambda (x) (* x x)) l)
+(mappend l l)
+(mlength l)
