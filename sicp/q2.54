@@ -1,0 +1,23 @@
+(define (memq iterm l)
+    (cond ((null? l) false)
+          ((eq? (car l) iterm) true)
+          (else (memq iterm (cdr l)))
+    )
+)
+
+(memq 'red '((red)))
+(memq 'red '(a red sock))
+
+(define (equal lsta lstb)
+    (cond ((and (null? lsta) (null? lstb)) true)
+          ((or (null? lsta) (null? lstb)) false)
+          (else (if 
+                  (eq? (car lsta) (car lstb)) 
+                  (equal (cdr lsta) (cdr lstb)) 
+                  false)
+          )
+    )
+)
+
+(equal '(1 2 3) '(1 2 3))
+(equal '(1 2 3) '(1 2 (3)))
