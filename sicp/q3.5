@@ -1,0 +1,23 @@
+(define (estimate-pi P? x1 x2 y1 y2 trials)
+    (define (random-range low high)
+        (+ (random (exact->inexact (- high low))) low)
+    )
+    (* 4 (monte-carlo 
+            trials 
+            (lambda () (P? 
+                        (random-range x1 x2) 
+                        (random-range y1 y2)))
+        )
+    )
+)
+
+(define (get-pi trials)
+    (exact->inexact (estimate-pi 
+        (lambda (x y) (< (+ (square x) (square y)) 1.0)) 
+        -1.0 
+        1.0 
+        -1.0 
+        1.0 
+        trials)
+    )
+)
